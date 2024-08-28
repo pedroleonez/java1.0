@@ -1,6 +1,6 @@
 package POO.BASICO;
 
-public class Produto {
+public class Product {
 
     public String name;
     public double price;
@@ -12,6 +12,10 @@ public class Produto {
 
     public void addProducts(int quantity) {
         this.quantity += quantity;
+    }
+
+    public void removeProducts(int quantity) {
+        this.quantity -= quantity;
     }
 
 }
