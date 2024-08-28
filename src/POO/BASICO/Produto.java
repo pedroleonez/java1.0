@@ -1,14 +1,17 @@
 package POO.BASICO;
 
-import java.util.Objects;
-import java.util.Scanner;
-
 public class Produto {
 
-    public String nome;
-    public double preco;
-    public int estoque;
+    public String name;
+    public double price;
+    public int quantity;
 
+    public double totalValueInStock() {
+        return price * quantity;
+    }
 
+    public void addProducts(int quantity) {
+        this.quantity += quantity;
+    }
 
 }
