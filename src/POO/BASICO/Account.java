@@ -39,11 +39,11 @@ public class Account {
     }
 
     public void deposit(Double value) {
-        balance = balance + value - 5;
+        balance += value;
     }
 
     public void withdraw(Double value) {
-        balance = balance - value - 5;
+        balance -= value - 5;
     }
 
 
