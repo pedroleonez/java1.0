@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Intro {
     public static void main(String[] args) {
 
-        File file = new File("c:\\temp\\in.txt");
+        File file = new File("C:\\Users\\User\\Desktop\\chatgpt.txt");
         Scanner sc = null;
         try {
             sc = new Scanner(file);
@@ -17,7 +17,12 @@ public class Intro {
             }
         }
         catch (IOException e) {
-            
+            System.out.println("Error: " + e.getMessage());
+        }
+        finally {
+            if (sc != null) {
+                sc.close();
+            }
         }
     }
 }
