@@ -2,7 +2,10 @@ package POO.INTERFACES.INTRO.application;
 
 import POO.INTERFACES.INTRO.model.entities.CarRental;
 import POO.INTERFACES.INTRO.model.entities.Vehicle;
+import POO.INTERFACES.INTRO.model.services.BrazilTaxService;
+import POO.INTERFACES.INTRO.model.services.RentalService;
 
+import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
@@ -25,6 +28,20 @@ public class Program {
         LocalDateTime finish = LocalDateTime.parse(sc.nextLine(), fmt);
 
         CarRental cr = new CarRental(start, finish, new Vehicle(carModel));
+
+        System.out.println("Entre com o preço por hora:");
+        double pricePerHour = sc.nextDouble();
+        System.out.println("Entre com preçp por dia:");
+        double pricePerDay = sc.nextDouble();
+
+        RentalService rentalService = new RentalService(pricePerHour, pricePerDay, new BrazilTaxService());
+
+        rentalService.processInvoice(cr);
+
+        System.out.println("FATURA:");
+        System.out.println("Pagamento básico: " + cr.getInvoice().getBasicPayment());
+        System.out.println("Imposto: " + cr.getInvoice().getTax());
+        System.out.println("Pagamento total: " + cr.getInvoice().getTotalPayment());
 
 
 
